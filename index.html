@@ -29,7 +29,7 @@
             </div>
 
             <section id="mainimg">
-                <video src="image_vids\Art is not What (1).mp4" autoplay loop muted></video>
+                <video id="responsiveVideo" src="image_vids\Art is not What (1).mp4" autoplay loop muted></video>
             </section>
         </div>
     </div>
@@ -302,21 +302,21 @@
 
 
     <script>
-        function changeVideoSrc() {
-            var videoElement = document.getElementById('responsiveVideo');
-            if (window.innerWidth <= 480) {
-                videoElement.src = 'image_vids/finmainvidph.mp4';
-                console.log("Switched to finmainvidph.mp4");
-            } else {
-                videoElement.src = 'image_vids/Art is not What (1).mp4';
-                console.log("Switched to Art is not What (1).mp4");
-            }
-        }
+       function changeVideoSrc() {
+    var videoElement = document.getElementById('responsiveVideo');
+    if (window.innerWidth <= 480) {
+        videoElement.src = 'image_vids/finmainvidph.mp4';
+        console.log("Switched to finmainvidph.mp4");
+    } else {
+        videoElement.src = 'image_vids/Art is not What (1).mp4';
+        console.log("Switched to Art is not What (1).mp4");
+    }
+}
 
-        document.addEventListener('DOMContentLoaded', function () {
-            changeVideoSrc(); // Run on load
-            window.addEventListener('resize', changeVideoSrc); // Run on resize
-        });
+document.addEventListener('DOMContentLoaded', function () {
+    changeVideoSrc(); // Run on load
+    window.addEventListener('resize', changeVideoSrc); // Run on resize
+});
     </script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
