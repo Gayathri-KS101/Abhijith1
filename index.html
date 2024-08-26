@@ -18,15 +18,32 @@
 
 
     <div id="main-content">
+        <input type="checkbox" id="menu-toggle">
+        <label for="menu-toggle" class="menu-icon">&#8942;</label>
         <div class="navbar-container">
             <div class="navbar">
-                <a href="#about">About</a>
-                <a href="#cv1">CV</a>
-                <a href="#services">Services</a>
-                <a href="#skills1">Skills</a>
-                <a href="#software">Software</a>
-                <a href="#contact">Contact</a>
+                <a href="#about" class="menu-link">About</a>
+                <a href="#cv1" class="menu-link">CV</a>
+                <a href="#services" class="menu-link">Services</a>
+                <a href="#skills1" class="menu-link">Skills</a>
+                <a href="#software" class="menu-link">Proficiency</a>
+                <a href="#contact" class="menu-link">Contact</a>
             </div>
+        </div>
+    </div>
+    
+    <script>
+        // Close the menu when any menu option is clicked
+        document.querySelectorAll('.menu-link').forEach(function(link) {
+            link.addEventListener('click', function() {
+                var checkbox = document.getElementById('menu-toggle');
+                checkbox.checked = false; // Uncheck the checkbox to close the menu
+            });
+        });
+    </script>
+    
+    
+    
 
             <section id="mainimg">
                 <video id="responsiveVideo" src="image_vids\Art is not What (1).mp4" autoplay loop muted></video>
@@ -305,7 +322,7 @@
        function changeVideoSrc() {
     var videoElement = document.getElementById('responsiveVideo');
     if (window.innerWidth <= 480) {
-        videoElement.src = 'image_vids/finmainvidph.mp4';
+        videoElement.src = 'image_vids/newfinmainvidph.mp4';
         console.log("Switched to finmainvidph.mp4");
     } else {
         videoElement.src = 'image_vids/Art is not What (1).mp4';
