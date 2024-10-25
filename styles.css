@@ -289,6 +289,31 @@ body {
     /* Add some space between the items */
 }
 
+
+
+
+
+
+#cv1 {
+    background-color: #000;
+    background-image: url('gradient-blue-abstract-background-smooth-dark-blue-with-black-vignette-studio.jpg') no-repeat center center fixed; ;
+    background-size: cover; /* Ensures the image covers the entire area */
+     
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+#cv1 h1 {
+    font-size: 60px;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff; /* Set text color for contrast */
+    animation: glow 1.5s infinite alternate; /* Adjust timing as needed */
+}
+
+
 #cv1 h1 {
     font-size: 60px;
     text-align: center;
@@ -322,6 +347,16 @@ body {
     }
 }
 
+
+
+
+
+
+
+
+
+
+
 .section {
     margin-bottom: 20px;
 }
@@ -343,14 +378,17 @@ body {
 }
 
 
+
+
 .container01 {
     padding: 75px 0;
     margin: 0 auto;
-    width: 90%;
+    width: 100%;
     /* Adjust width to be responsive */
-    max-width: 1140px;
+    max-width: 2140px;
     /* Set max-width for larger screens */
     text-align: center;
+    background-color: #000;
 }
 
 .container01 h1 {
@@ -504,10 +542,6 @@ body {
 
 
 
-
-
-
-
 #services {
 
     /*background-image: url("");*/
@@ -635,11 +669,10 @@ body {
     100% {
         box-shadow: 0 0 20px rgba(149, 89, 181, 1);
     }
-}
-
-#software {
+}#software {
     padding: 20px;
     background: none;
+    overflow: hidden; /* Hide overflow to create a smooth scrolling effect */
 }
 
 #software h2 {
@@ -650,19 +683,14 @@ body {
 
 .software-list {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    margin: -10px;
-    /* Offset to counteract child margin */
+    justify-content: flex-start;
+    animation: scroll 20s linear infinite;
 }
 
 .software-item {
-    flex: 1 1 calc(25% - 20px);
-    /* 4 items per row */
+    flex: 0 0 auto;
     width: calc(25% - 20px);
-    /* Adjust the width as needed */
     margin: 10px;
-    /* Minimum 10px spacing */
     text-align: center;
     background-color: rgba(0, 0, 0, 0.1);
     border: 10px solid rgba(0, 0, 0, 0.1);
@@ -689,94 +717,77 @@ body {
     font-size: 1.2em;
 }
 
-@media screen and (max-width: 768px) {
-    .software-item {
-        flex: 1 1 calc(50% - 20px);
-        /* 2 items per row on smaller screens */
-    }
+/* Keyframes for circular scrolling */
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
 }
 
-@media screen and (max-width: 480px) {
-    .software-item {
-        flex: 1 1 100%;
-        /* 1 item per row on very small screens */
-    }
+.software-list {
+    display: flex;
+    animation: scroll 20s linear infinite;
 }
 
-.software-item#Lightroom strong {
-    display: block;
-    margin-bottom: 10px;
-    font-size: 0.9 em;
+.software-list:hover {
+    animation-play-state: paused;
+}
+
+/* Duplicate the items for seamless scrolling */
+.software-list::after {
+    content: '';
+    display: flex;
+    width: 100%;
+    flex: 0 0 auto;
+    background: inherit;
 }
 
 /* Specific glow colors for each item */
 #Alight {
     box-shadow: 0 0 15px 5px rgba(2, 84, 2, 0.6);
-    /* Red glow */
 }
 
 #Alight:hover {
     box-shadow: 0 0 15px 5px rgba(243, 240, 227, 0.6);
-    /* Red glow */
 }
-
 
 #Capcut {
     box-shadow: 0 0 15px 5px rgba(2, 84, 2, 0.6);
-    /* Green glow */
 }
 
 #Capcut:hover {
     box-shadow: 0 0 15px 5px rgba(243, 240, 227, 0.6);
-    /* Red glow */
 }
 
 #Lightroom {
     box-shadow: 0 0 15px 5px rgba(2, 84, 2, 0.6);
-    /* Blue glow */
 }
 
 #Lightroom:hover {
     box-shadow: 0 0 15px 5px rgba(243, 240, 227, 0.6);
-    /* Red glow */
 }
 
 #AdobeP {
     box-shadow: 0 0 15px 5px rgba(2, 84, 2, 0.6);
-    /* Yellow glow */
 }
 
 #AdobeP:hover {
     box-shadow: 0 0 15px 5px rgba(243, 240, 227, 0.6);
-    /* Red glow */
 }
 
 #AdobeE {
     box-shadow: 0 0 15px 5px rgba(2, 84, 2, 0.6);
-    /* Magenta glow */
 }
 
 #AdobeE:hover {
     box-shadow: 0 0 15px 5px rgba(243, 240, 227, 0.6);
-    /* Red glow */
 }
 
 #AdobeXD {
     box-shadow: 0 0 15px 5px rgba(2, 84, 2, 0.6);
-    /* Cyan glow */
 }
 
 #AdobeXD:hover {
     box-shadow: 0 0 15px 5px rgba(243, 240, 227, 0.6);
-    /* Red glow */
-}
-
-@media (min-width: 768px) {
-    .software-item {
-        flex: 1 1 calc(25% - 20px);
-        /* 4 items per row */
-        margin: 10px;
-    }
 }
 
 
@@ -834,6 +845,12 @@ body {
 .links li a.linkstyle:hover {
     text-decoration: underline;
 }
+
+
+
+
+
+
 
 /* Media Queries */
 
