@@ -1,11 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Looping Gallery</title>
+    <style>
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            overflow: hidden;
+        }
+
+        /* Gallery Container */
+        .gallery-container {
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Top and Bottom Galleries */
+        .gallery {
+            position: absolute;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            height: 20vh;
+        }
+
+        .gallery-top {
+            top: 10vh;
+        }
+
+        .gallery-bottom {
+            bottom: 10vh;
+        }
+
+        /* Gallery Track */
+        .gallery-track {
+            display: flex;
+            gap: 10px;
+            animation: scroll 10s linear infinite;
+        }
+
+        .gallery-top .gallery-track {
+            animation-direction: normal;
+        }
+
+        .gallery-bottom .gallery-track {
+            animation-direction: reverse;
+        }
+
+        /* Scroll Animation */
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .gallery-track img {
+            width: 20vw;
+            /* Make it responsive */
+            max-width: 200px;
+            /* Set a max width for larger screens */
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+
 </head>
+
 <body>
-    
+    <div class="gallery-container">
+        <!-- Top Gallery -->
+        <div class="gallery gallery-top">
+            <div class="gallery-track" id="galleryTrackTop">
+                <img src="image_vids/c4.png" alt="Image 1">
+                <img src="image_vids/c5.png" alt="Image 2">
+                <img src="image_vids/c5.png" alt="Image 3">
+                <img src="image_vids/c5.png" alt="Image 4">
+                <img src="image_vids/c5.png" alt="Image 5">
+
+            </div>
+        </div>
+
+        <!-- Bottom Gallery -->
+        <div class="gallery gallery-bottom">
+            <div class="gallery-track" id="galleryTrackBottom">
+                <img src="image_vids/c4.png" alt="Image 1">
+                <img src="image_vids/c5.png" alt="Image 2">
+                <img src="image_vids/c5.png" alt="Image 3">
+                <img src="image_vids/c5.png" alt="Image 4">
+                <img src="cvbg.gif" alt="Image 5">
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+       
+    </script>
 </body>
+
 </html>
