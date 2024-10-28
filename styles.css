@@ -98,20 +98,16 @@ body {
         width: 100%;
     }
 }
-
-
 #mainimg {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0;
+    margin: 0; /* Remove margin */
     text-align: center;
     overflow: hidden;
-    background-color: #000;
-    /* Set a background color matching the video */
+    background-color: #000; /* Background color matching the video */
     position: relative;
-    /* Ensure the main image section is positioned correctly */
-    box-shadow: 0 0 45px rgba(0, 255, 255, 0.8);
+    box-shadow: 0 0 45px rgba(0, 255, 255, 0.8), 0 10px 15px rgba(0, 0, 0, 0.5); /* Added a bottom shadow */
 }
 
 #mainimg video {
@@ -296,13 +292,10 @@ body {
 
 #cv1 {
     background-color: #000;
-    background-image: url('gradient-blue-abstract-background-smooth-dark-blue-with-black-vignette-studio.jpg') no-repeat center center fixed; ;
+    background-image: url('gradient-blue-abstract-background-smooth-dark-blue-with-black-vignette-studio.jpg') no-repeat center center fixed;
     background-size: cover; /* Ensures the image covers the entire area */
-     
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+    margin-top: -74px; /* Adjust to overlap with #mainimg */
+    padding-top: 20px; /* Space inside the cv1 section */
 }
 
 #cv1 h1 {
@@ -335,6 +328,16 @@ body {
 
 #cv1 .horizontal-list li img:hover {
     animation: glow 1s infinite alternate;
+}
+@media screen and (max-width: 480px) {
+    #cv1 .horizontal-list li img {
+        width: 280px; /* Smaller width for mobile */
+    }
+    
+    #cv1 h1 {
+        font-size: 30px; /* Adjust header size for mobile */
+        text-align: center;
+    }
 }
 
 @keyframes glow {
@@ -495,31 +498,8 @@ body {
 }
 
 /* Responsive Styles */
-@media (max-width: 768px) {
-    .gallery-wrap {
-        flex-direction: column;
-        height: auto;
-    }
-
-    .item {
-        margin: 10px 0;
-        /* Increase spacing for smaller screens */
-    }
-
-    .text-box {
-        width: 90%;
-        font-size: 14px;
-    }
-
-    .btn {
-        padding: 6px 12px;
-    }
-
-    h1 {
-        font-size: 36px;
-    }
-}
-
+/* Responsive Styles */
+/* Responsive Styles */
 @media (max-width: 480px) {
     .container01 {
         padding: 50px 0;
@@ -529,15 +509,46 @@ body {
         font-size: 28px;
     }
 
+    .gallery-wrap {
+        flex-direction: row; /* Keep items in a row */
+        overflow-x: auto; /* Allow horizontal scrolling */
+        height: auto; /* Allow height to adjust */
+        white-space: nowrap; /* Prevent wrapping of items */
+    }
+
+    .item {
+        flex: 0 0 calc(50% - 10px); /* Set width to fit 2 items per row */
+        margin: 5px; /* Maintain horizontal margin */
+        height: 150px; /* Set a fixed height for consistency */
+        transition: flex 0.4s ease; /* Adjust transition duration */
+    }
+
+    .item.expanded {
+        flex: 3; /* Adjust the expanded size */
+    }
+
     .text-box {
-        width: 95%;
+        width: 60%; /* Keep it responsive */
+        font-size: 12px;
+    }
+
+    .text-box p {
+        font-size: smaller; /* Adjust paragraph font size */
+    }
+
+    .item .item-4 .text-box {
+        width: 140%; /* Keep it responsive */
+        font-size: 12px;
+    }
+
+    .item .item-1 .text-box {
+        width: 140%; /* Keep it responsive */
         font-size: 12px;
     }
 
     .btn {
         padding: 4px 8px;
     }
-
 }
 
 
@@ -625,6 +636,52 @@ body {
 }
 
 
+
+@media (max-width: 480px) {
+    #services .s-list .s-item li.service-item {
+        width: 40%; /* Set width to about one-third of the container */
+        max-width: 150px; /* Adjust maximum width for smaller items */
+        margin: 5px; /* Reduce margin for better spacing */
+    }
+
+    #services .s-list {
+        flex-wrap: wrap; /* Allow wrapping for smaller screens */
+        justify-content: center; /* Center the items */
+    }
+
+    #services h1 {
+        font-size: 30px; /* Adjust header size for mobile */
+    }
+
+    #services .s-list .s-item h2 {
+        font-size: 24px; /* Adjust subheader size for mobile */
+    }
+}
+
+
+
+
+
+
+
+
+
+/* Media query for screen width 480px or smaller */
+@media (max-width: 480px) {
+    .item {
+        width: 80%; /* Make each item take most of the width */
+        max-width: 300px; /* Limit max width for each item */
+        margin: 5px; /* Adjust margin for spacing */
+    }
+
+    .gallery-wrap {
+        justify-content: center; /* Center the items */
+    }
+}
+
+
+
+
 #skills1 p {
     text-align: center;
 }
@@ -669,7 +726,13 @@ body {
     100% {
         box-shadow: 0 0 20px rgba(149, 89, 181, 1);
     }
-}#software {
+}
+
+
+
+
+
+#software {
     padding: 20px;
     background: none;
     overflow: hidden; /* Hide overflow to create a smooth scrolling effect */
@@ -740,6 +803,49 @@ body {
     flex: 0 0 auto;
     background: inherit;
 }
+
+
+@media (max-width: 480px) {
+    #software {
+        padding: 20px;
+    }
+
+    #software h2 {
+        font-size: 1.5em; /* Adjust heading size for smaller screens */
+    }
+
+    #software-list{
+        size: 50%;
+    }
+
+   
+    .software-item img {
+        max-width: 150%;
+        height: auto;
+        border-radius: 4px;
+    }
+
+    .software-list:hover {
+        animation-play-state: paused; /* Pause scrolling on hover */
+    }
+    .software-item h1{
+        font-size: small;
+    }
+
+    .software-item strong{
+        font-size: small;
+    }
+
+
+
+}
+
+/* Keyframes for circular scrolling */
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); } /* Adjust this based on total width */
+}
+
 
 /* Specific glow colors for each item */
 #Alight {
