@@ -818,11 +818,9 @@ body {
 
 
 
-
 #software {
     padding: 20px;
-    background: none;
-    overflow: hidden; /* Hide overflow to create a smooth scrolling effect */
+    overflow: hidden; /* Hide overflow for smooth scrolling */
 }
 
 #software h2 {
@@ -833,7 +831,6 @@ body {
 
 .software-list {
     display: flex;
-    justify-content: flex-start;
     animation: scroll 20s linear infinite;
 }
 
@@ -842,7 +839,7 @@ body {
     width: calc(25% - 20px);
     margin: 10px;
     text-align: center;
-    background-color: rgba(0, 0, 0, 0.1);
+    background: rgba(0, 0, 0, 0.1);
     border: 10px solid rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     padding: 20px;
@@ -867,70 +864,39 @@ body {
     font-size: 1.2em;
 }
 
-/* Keyframes for circular scrolling */
+/* Keyframes for scrolling */
 @keyframes scroll {
     0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-}
-
-.software-list {
-    display: flex;
-    animation: scroll 20s linear infinite;
+    100% { transform: translateX(-100%); } /* Adjust based on total width */
 }
 
 .software-list:hover {
-    animation-play-state: paused;
+    animation-play-state: paused; /* Pause on hover */
 }
 
-/* Duplicate the items for seamless scrolling */
-.software-list::after {
-    content: '';
-    display: flex;
-    width: 100%;
-    flex: 0 0 auto;
-    background: inherit;
-}
-
-
+/* Media Queries */
+/* Media Queries */
 @media (max-width: 480px) {
-    #software {
-        padding: 20px;
-    }
-
     #software h2 {
-        font-size: 1.5em; /* Adjust heading size for smaller screens */
+        font-size: 1.5em;
     }
 
-    #software-list{
-        size: 50%;
+    .software-item {
+        width: 60%; /* Adjust the width to be more in line with the image size */
+        margin: 10px auto; /* Center the items */
+        padding: 10px; /* Add some padding to make it look better */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: reduce shadow for smaller items */
     }
 
-   
     .software-item img {
-        max-width: 150%;
-        height: auto;
-        border-radius: 4px;
+        max-width: 100%; /* Ensure the image fits the item */
+        height: auto;    /* Maintains aspect ratio */
     }
 
-    .software-list:hover {
-        animation-play-state: paused; /* Pause scrolling on hover */
-    }
-    .software-item h1{
+    .software-item h1, 
+    .software-item strong {
         font-size: small;
     }
-
-    .software-item strong{
-        font-size: small;
-    }
-
-
-
-}
-
-/* Keyframes for circular scrolling */
-@keyframes scroll {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-100%); } /* Adjust this based on total width */
 }
 
 
